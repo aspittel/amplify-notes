@@ -10,11 +10,13 @@ import config from './aws-exports'
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 
+import { studioTheme } from './ui-components'
+
 Amplify.configure(config)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <AmplifyProvider>
+  <AmplifyProvider theme={studioTheme}>
     <App />
   </AmplifyProvider>
 )

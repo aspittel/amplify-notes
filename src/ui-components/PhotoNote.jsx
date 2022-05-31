@@ -33,7 +33,6 @@ export default function PhotoNote(props) {
         display="flex"
         gap="16px"
         direction="column"
-        width="321px"
         shrink="0"
         position="relative"
         border="0.5px SOLID rgba(0,0,0,0.25)"

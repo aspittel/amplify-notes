@@ -6,24 +6,10 @@
 
 /* eslint-disable */
 import React from "react";
-import {
-  getOverrideProps,
-  useDataStoreUpdateAction,
-  useStateMutationAction,
-} from "@aws-amplify/ui-react/internal";
-import { Note } from "../models";
-import { schema } from "../models/schema";
-import { Flex, Icon, Text, TextField, View } from "@aws-amplify/ui-react";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Button, Divider, Flex, Icon, TextField } from "@aws-amplify/ui-react";
 export default function UpdateNote(props) {
   const { note, overrides, ...rest } = props;
-  const [titleValue, setTitleValue] = useStateMutationAction("");
-  const [noteValue, setNoteValue] = useStateMutationAction("");
-  const buttonOnClick = useDataStoreUpdateAction({
-    fields: { title: titleValue, text: noteValue },
-    id: note?.id,
-    model: Note,
-    schema: schema,
-  });
   return (
     <Flex
       gap="16px"
@@ -74,103 +60,76 @@ export default function UpdateNote(props) {
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
         </Flex>
-        <TextField
-          display="flex"
-          gap="8px"
+        <Flex
+          gap="16px"
           direction="column"
-          width="558px"
-          justifyContent="center"
           shrink="0"
+          alignSelf="stretch"
+          objectFit="cover"
           position="relative"
           padding="0px 0px 0px 0px"
-          label="Title"
-          placeholder=""
-          size="default"
-          isDisabled={false}
-          labelHidden={false}
-          variation="default"
-          value={titleValue}
-          onChange={(event) => {
-            setTitleValue(event.target.value);
-          }}
-          {...getOverrideProps(overrides, "Title")}
-        ></TextField>
-        <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
-          width="558px"
-          justifyContent="center"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          label="Note"
-          placeholder=""
-          size="default"
-          isDisabled={false}
-          labelHidden={false}
-          variation="default"
-          value={noteValue}
-          onChange={(event) => {
-            setNoteValue(event.target.value);
-          }}
-          {...getOverrideProps(overrides, "Note")}
-        ></TextField>
-        <View
+          {...getOverrideProps(overrides, "Forms")}
+        >
+          <TextField
+            display="flex"
+            gap="8px"
+            direction="column"
+            width="592px"
+            justifyContent="center"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            label="Title"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            {...getOverrideProps(overrides, "TextField31602478")}
+          ></TextField>
+          <TextField
+            display="flex"
+            gap="8px"
+            direction="column"
+            width="592px"
+            justifyContent="center"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            label="Note"
+            size="default"
+            isDisabled={false}
+            labelHidden={false}
+            variation="default"
+            {...getOverrideProps(overrides, "TextField31602471")}
+          ></TextField>
+        </Flex>
+        <Divider
           height="1px"
           shrink="0"
           alignSelf="stretch"
           objectFit="cover"
           position="relative"
           padding="0px 0px 0px 0px"
+          size="small"
+          orientation="horizontal"
           {...getOverrideProps(overrides, "Divider")}
-        >
-          <View
-            position="absolute"
-            top="0%"
-            bottom="0%"
-            left="0%"
-            right="0%"
-            padding="0px 0px 0px 0px"
-            backgroundColor="rgba(239,240,240,1)"
-            {...getOverrideProps(overrides, "Rectangle 1143")}
-          ></View>
-        </View>
-        <Flex
-          gap="0"
+        ></Divider>
+        <Button
+          display="flex"
+          gap="20px"
           direction="row"
           width="fit-content"
+          height="40px"
           justifyContent="center"
           alignItems="center"
           shrink="0"
           position="relative"
-          border="1px SOLID rgba(0,0,0,0)"
-          borderRadius="4px"
-          padding="7px 15px 7px 15px"
-          backgroundColor="rgba(4,125,149,1)"
-          onClick={() => {
-            buttonOnClick();
-          }}
+          size="default"
+          isDisabled={false}
+          variation="primary"
+          children="Save"
           {...getOverrideProps(overrides, "Button")}
-        >
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="700"
-            color="rgba(255,255,255,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="flex"
-            direction="column"
-            justifyContent="flex-start"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Save"
-            {...getOverrideProps(overrides, "label")}
-          ></Text>
-        </Flex>
+        ></Button>
       </Flex>
     </Flex>
   );

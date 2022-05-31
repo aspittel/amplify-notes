@@ -78,14 +78,14 @@ export default function NavBar(props) {
           shrink="0"
           height="42px"
           position="relative"
-          border="1px SOLID rgba(255,255,255,1)"
+          border="1px SOLID rgba(13,26,38,1)"
           borderRadius="5px"
           padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="default"
           children="Create Note"
-          {...getOverrideProps(overrides, "Button32502460")}
+          {...getOverrideProps(overrides, "Button31632483")}
         ></Button>
         <Button
           display="flex"
@@ -97,14 +97,14 @@ export default function NavBar(props) {
           shrink="0"
           height="42px"
           position="relative"
-          border="1px SOLID rgba(255,255,255,1)"
+          border="1px SOLID rgba(13,26,38,1)"
           borderRadius="5px"
           padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="default"
           children="Sign Out"
-          {...getOverrideProps(overrides, "Button32502464")}
+          {...getOverrideProps(overrides, "Button31632487")}
         ></Button>
       </Flex>
     </Flex>
